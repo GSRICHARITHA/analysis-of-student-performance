@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="academicsstyles.css">
+    <title>academics page</title>
+</head>
+<body>
+<header>
+    <div class="header-text">
+        <P>ACADEMICS</P>
+    </div>
+    <div class="dropdown">
+        <div class="line"><button onclick="myFunction()" class="dropbtn"><i class="fa fa-bars" id="myIcon"></i></button></div>
+        <div id="myDropdown" class="dropdown-content">
+          <button onclick="profile()">Profile</button><hr>
+          <button onclick="attendance()">Attendance</button><hr>
+          <button onclick="assignments()">Assignments</button><hr>
+          <button onclick="academics()">Academics</button><hr>
+          <button onclick="achievements()">Achievements</button><hr>
+          <button onclick="firstpage()">Logout</button>
+        </div>
+    </div>
+</header>
+
+<div class="emptybox">
+    <div class="overall" id="overallid">
+        <p>OVERALL</p>
+    </div>
+    <div class="dropdownbox">
+        <button onclick="myDropdownbox()" class="dropbutton"><i class="fa fa-bars" id="myStyle"></i></button>
+        <div id="myDropdownid" class="dropdowncontent">
+            <button onclick="showSection('overallid')">overall</button><hr>
+            <button onclick="showSection('firstid')">1st year</button><hr>
+            <button onclick="showSection('secondid')">2nd year</button><hr>
+            <button onclick="showSection('thirdid')">3rd year</button><hr>
+            <button onclick="showSection('fourthid')">4th year</button> 
+        </div>
+    </div>
+    <div class="firstyear" id="firstid">
+        <p><b>FIRST YEAR</b></p>
+        <button onclick="showSemester('first')">Sem-1</button>
+        <button onclick="showSemester('second')">Sem-2</button>
+    </div>
+    <div class="secondyear" id="secondid">
+        <p><b>SECOND YEAR</b></p>
+        <button onclick="showSemester('third')">Sem-1</button>
+        <button onclick="showSemester('fourth')">Sem-2</button>
+    </div>
+    <div class="thirdyear" id="thirdid">
+        <p><b>THIRD YEAR</b></p>
+        <button onclick="showSemester('fifth')">Sem-1</button>
+        <button onclick="showSemester('sixth')">Sem-2</button>
+    </div>
+    <div class="fourthyear" id="fourthid">
+        <p><b>FOURTH YEAR</b></p>
+        <button onclick="showSemester('seventh')">Sem-1</button>
+        <button onclick="showSemester('eighth')">Sem-2</button>
+    </div>
+    <div class="chart">
+
+    </div>
+</div>
+
+<script>
+//    This script is for the working of dropdown in the header
+function myFunction() {
+  var dropdown = document.getElementById("myDropdown");
+  dropdown.classList.toggle("show");
+}
+// Allow clicking the icon to trigger the dropdown
+document.getElementById("myIcon").addEventListener("click", function(event) {
+        event.stopPropagation(); // Prevent button click event from firing
+        myFunction();
+    });
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+          }
+      }
+  }
+}
+
+function profile() {
+  window.location.href = 'profile.html';
+}
+function attendance() {
+  window.location.href = 'attendance.html';
+}
+function assignments() {
+  window.location.href = 'assignments.html';
+}
+function achievements() {
+  window.location.href = 'achievements.html';
+}
+function academics(){
+  window.location.href = 'academics.html';
+}
+function firstpage() {
+  window.location.href = '../firstpage/mainpage.html';
+}
+// Log errors to the console
+window.onerror = function (msg, url, lineNo, columnNo, error) {
+  console.log('Error:', msg, 'URL:', url, 'Line:', lineNo, 'Column:', columnNo, 'Error object:', error);
+  return false;
+}; // End of the header dropdown
+// dropdown box in the emptybox
+  function myDropdownbox() {
+      var dropdown = document.getElementById("myDropdownid");
+      dropdown.classList.toggle("show");
+  }
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function (event) {
+      if (!event.target.matches('.dropbutton')) {
+          var dropdowns = document.getElementsByClassName("dropdowncontent");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                  openDropdown.classList.remove('show');
+              }
+          }
+      }
+  }
+    document.addEventListener("DOMContentLoaded", function () {
+        // Show the "OVERALL" section by default
+        showSection('overallid');
+    });
+    // Close the dropdown if the user clicks outside of it
+    
+
+
+    function showSection(sectionId) {
+        var sections = document.querySelectorAll('.firstyear, .secondyear, .thirdyear, .fourthyear, .overall');
+
+        sections.forEach(function (section) {
+            section.style.display = "none";
+        });
+
+        var emptyBox = document.querySelector('.chart');
+        emptyBox.style.display = "none"; // Hide the chart by default
+
+        var section = document.getElementById(sectionId);
+        if (section) {
+            section.style.display = "block";
+        }
+    }
+    function showSemester(sem) {
+            // Clear the existing content in the emptybox
+            var emptyBox = document.querySelector('.chart');
+            emptyBox.innerHTML = '';
+            if (sem === 'first') {
+            emptyBox.innerHTML = `<iframe src="../second page/chartsem1.html" width="100%" height="100%" frameborder="0"></iframe>`;
+            emptyBox.style.display = "block"; // Show the chart for the selected semester
+        } 
+        else if (sem === 'second') {
+            emptyBox.innerHTML = `<iframe src="../second page/chartsem2.html" width="100%" height="100%" frameborder="0"></iframe>`;
+            emptyBox.style.display = "block"; // Show the chart for the selected semester
+        }
+        else if (sem === 'third') {
+            emptyBox.innerHTML = `<iframe src="../second page/chartsem3.html" width="100%" height="100%" frameborder="0"></iframe>`;
+            emptyBox.style.display = "block"; // Show the chart for the selected semester
+        }
+        else if (sem === 'fourth') {
+            emptyBox.innerHTML = `<iframe src="../second page/chartsem4.html" width="100%" height="100%" frameborder="0"></iframe>`;
+            emptyBox.style.display = "block"; // Show the chart for the selected semester
+        }
+        else if (sem === 'fifth') {
+            emptyBox.innerHTML = `<iframe src="../second page/chartsem5.html" width="100%" height="100%" frameborder="0"></iframe>`;
+            emptyBox.style.display = "block"; // Show the chart for the selected semester
+        }
+        else if (sem === 'sixth') {
+            emptyBox.innerHTML = `<iframe src="../second page/chartsem6.html" width="100%" height="100%" frameborder="0"></iframe>`;
+            emptyBox.style.display = "block"; // Show the chart for the selected semester
+        }
+        else if (sem === 'seventh') {
+            emptyBox.innerHTML = `<iframe src="../second page/chartsem7.html" width="100%" height="100%" frameborder="0"></iframe>`;
+            emptyBox.style.display = "block"; // Show the chart for the selected semester
+        }
+        else if (sem === 'eighth') {
+            emptyBox.innerHTML = `<iframe src="../second page/chartsem8.html" width="100%" height="100%" frameborder="0"></iframe>`;
+            emptyBox.style.display = "block"; // Show the chart for the selected semester
+        }
+        else {
+            emptyBox.style.display = "none"; // Hide the chart for other semesters
+        }
+    }
+    // Allow clicking the icon to trigger the dropdown
+document.getElementById("myStyle").addEventListener("click", function(event) {
+        event.stopPropagation(); // Prevent button click event from firing
+        myDropdownbox();
+    });
+    // Close the dropdown if the user clicks outside of it
+    document.addEventListener('click', function(event) {
+        var dropdown = document.getElementById('myDropdown');
+        if (event.target.closest('.dropdown') === null && !event.target.matches('.dropbtn')) {
+            dropdown.classList.remove('show');
+        }
+    });
+    
+   
+</script>
+</body>
+</html>

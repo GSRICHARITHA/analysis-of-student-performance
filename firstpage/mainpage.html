@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dep first page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="first">
+    <header>
+        <p><b>STUDENT DASHBOARD</b></p>
+        <div class="buttons">
+            <a href="https://mrec.ac.in/" target="_blank"><button class="mrec">MREC</button></a>
+            <a href="https://atharvadsc.com/" target="_blank"><button class="atharva">ATHARVA</button></a>
+            <button onclick="goTologin()" class="login">LOGIN</button>
+        </div>
+    </header>
+    <div class="heading">
+        <div class="dep">
+            <p>DEPARTMENT </p><br>
+            <p>OF</p><br>
+        </div>
+        <div class="ds"><P>DATA SCIENCE</P></div>
+    </div>
+    <div class="icons">
+        <img src="images/icons.jpg" alt="icons">
+    </div>
+    <div class="study">
+    <div class="mheading">
+        <h1>MATERIALS</h1>
+    </div>
+    <div class="materials">
+        <select id="year" name="year" onchange="updateSubjects()">
+            <option value="select">Select Year</option>
+            <option value="one">1st Year</option>
+            <option value="two">2nd Year</option>
+            <option value="three">3rd Year</option>
+            <option value="four">4th Year</option>
+        </select><br>
+        <select id="sem" name="sem" onchange="updateSubjects()">
+            <option value="select">Select Semester</option>
+            <option value="first">Sem 1</option>
+            <option value="second">Sem 2</option>
+        </select><br>
+        <select id="subjects" name="subjects">
+            <option value="select">Select Subject</option>
+        </select>
+    </div>
+    </div>
+    </div>
+    <script>
+        function goTologin() {
+            // Redirect to login.html
+            window.location.href = '../firstpagelogin/login.html';
+        }
+        function updateSubjects() {
+        var year = document.getElementById("year").value;
+        var sem = document.getElementById("sem").value;
+        var subjectsDropdown = document.getElementById("subjects");
+
+        // Clear existing options
+        subjectsDropdown.innerHTML = '<option value="select">Select Subject</option>';
+
+        // Add subjects based on year and sem
+        if (year === "one" && sem === "first") {
+            addSubjects(["PPS", "LANM", "Physics","Chemistry","Engineering Drawing","PPS Lab","Physics Lab","Chemistry Lab"]);
+        } else if (year === "one" && sem === "second") {
+            addSubjects(["Python", "P&S", "English","BEEE","Python Lab","BEEE Lab","IT Lab"]);
+        } else if (year === "two" && sem === "first") {
+            addSubjects(["OOPS", "COA", "DPA","DS","DM","ES","OOPS Lab","DS Lab","DPA Lab"]);
+        } 
+        else if (year === "two" && sem === "second") {
+            addSubjects(["SE", "DAA","SDS","DBMS","FAI","GS","DAA Lab","DBMS Lab","SDS Lab"]);
+        } 
+        else if (year === "three" && sem === "first") {
+            addSubjects(["OS","CN","MF","DS","APP","WT","QA","APP Lab","OS Lab"]);
+        } // Add more conditions for other combinations
+
+        // Add subjects to the dropdown
+        function addSubjects(subjectArray) {
+            for (var i = 0; i < subjectArray.length; i++) {
+                var option = document.createElement("option");
+                option.value = subjectArray[i];
+                option.text = subjectArray[i];
+                subjectsDropdown.add(option);
+            }
+        }
+    }
+    </script>
+</body>
+</html>

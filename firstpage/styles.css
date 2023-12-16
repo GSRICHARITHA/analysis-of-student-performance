@@ -1,0 +1,295 @@
+body{
+    background-color:black;
+}
+.first{
+    height:calc(100vh);
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(31 41 55);;
+    color:#949494;
+    border-radius: 15px;
+    padding: 8px;
+    /* margin-top: 3vw; */
+}
+.buttons .mrec{
+    background-color:transparent;
+    color:#949494;
+    border:none;
+    font-size: 1.5vw;
+}
+.buttons .atharva{
+    background-color:transparent;
+    color:#949494;
+    border: none;
+    font-size: 1.5vw;
+}
+.buttons .login{
+    background-color:#C3470A;
+    color:#0D0D0B;
+    font-size: 1.5vw;
+}
+p{
+    margin: 0;
+    font-family:Agency FB;
+    font-size: 3.5vw;
+    font-style: bold;
+}
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+button {    
+    margin-left: 15px; /* Add some spacing between buttons */
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family:Berlin sans FB;
+}
+button:not(:last-child) {
+    margin-right: 15px; /* Add right margin for all buttons except the last one */
+}
+.text {
+    text-align: center;
+}
+.heading{
+     margin:5vw;
+     margin-left: 7vw;  
+     margin-bottom: 7vw;  
+     margin-right: 7vw;  
+
+}
+@font-face {
+    font-family: 'MADE Soulmaze Outline';
+    src: url('fonts/Soulmaze.otf') format('opentype'); /* Adjust the path as per your file structure */
+    /* You can also include different font formats (e.g., .woff, .woff2, .ttf) for cross-browser compatibility */
+}
+@font-face {
+    font-family: 'Object Sans';
+    src: url('font/ObjectSans-Heavy.otf') format('opentype'),
+}
+.dep p{
+    display: flex;
+    justify-content: center;
+    color:#949494;
+    font-size:5vw;
+    font-family: 'MADE Soulmaze Outline', sans-serif;
+    -webkit-text-stroke: 2px #949494; /* Width and color of the outline */
+  
+}
+.dep{
+    text-align: center;
+    flex: 1;
+}
+.ds p {
+    text-transform: uppercase;
+    color:#949494; /* You can change this color to your preference */
+    opacity: 0.6; /* Adjust the value for the desired level of transparency (0 to 1) */
+    font-family: 'Object Sans', sans-serif; /* Apply Object Sans font */
+    /* Additional styles can be added as needed */
+    text-align: center;
+    font-size: 7vw;
+    margin:0;
+    margin-top:2px;
+  }
+.icons{
+    display: flex;
+    justify-content: center;
+    margin-top:-3vw;
+}
+img{
+    max-width:45vw;
+    align-content: center;
+}
+.mheading{
+    margin-top:4vw;
+    color:#949494;
+}
+.materials{
+    margin:20px;
+    padding: 50px;
+    background-color: #949494;
+    margin-top: 4vw;
+}
+.materials select{
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+@media only screen and (min-width:300px) and (max-width:425px){
+    .mrec button{
+        font-size: 2.2vw;
+    }
+    .atharva button{
+        font-size: 2.2vw;
+    }
+    .dep{
+        text-align: start;
+    }
+    .ds{
+        text-align: start;
+    }
+    .dep p{
+        font-size: 2.4rem;
+        font-family: 'MADE Soulmaze Outline', sans-serif;
+        --tw-text-opacity: 1;
+        color: rgba(156,163,175,var(--tw-text-opacity));
+        line-height: 1;
+        letter-spacing: .025em;
+    }
+    .ds p{
+        font-size: 3.5rem;
+        line-height: 1;
+        opacity: .6;
+        --tw-text-opacity: 1;
+        color: rgba(156,163,175,var(--tw-text-opacity));
+    }
+    header p{
+        font-size: 3vh;
+    }
+    .buttons .mrec{
+        font-size: 1.7vh;
+        padding: 5px;
+    }
+    .buttons .atharva{
+        font-size: 1.7vh;
+        padding: 5px;
+    }
+    .buttons .login{
+        font-size: 1.7vh;
+        padding: 5px; 
+    }
+    .heading{
+        margin-top: 7rem;
+        margin-bottom: 7rem;
+    }
+    .icons{
+        padding-top: 1.5rem;
+        padding-bottom: 6rem;
+    }
+    img{
+        max-width: 100vw;
+    }
+}
+@media only screen and (min-width:425px) and (max-width:529px){
+    .mrec button{
+        font-size: 2.2vw;
+    }
+    .atharva button{
+        font-size: 2.2vw;
+    }
+    .dep{
+        text-align: start;
+    }
+    .ds{
+        text-align: start;
+    }
+    .dep p{
+        font-size: 3rem;
+        font-family: 'MADE Soulmaze Outline', sans-serif;
+        --tw-text-opacity: 1;
+        color: rgba(156,163,175,var(--tw-text-opacity));
+        line-height: 1;
+        letter-spacing: .025em;
+    }
+    .ds p{
+        font-size: 4rem;
+        line-height: 1;
+        opacity: .6;
+        --tw-text-opacity: 1;
+        color: rgba(156,163,175,var(--tw-text-opacity));
+    }
+    header p{
+        font-size: 3vh;
+    }
+    .buttons .mrec{
+        font-size: 1.7vh;
+        padding: 5px;
+    }
+    .buttons .atharva{
+        font-size: 1.7vh;
+        padding: 5px;
+    }
+    .buttons .login{
+        font-size: 1.7vh;
+        padding: 5px; 
+    }
+    .heading{
+        margin-top: 7rem;
+        margin-bottom: 7rem;
+    }
+    .icons{
+        padding-top: 1.5rem;
+        padding-bottom: 6rem;
+    }
+    img{
+        max-width: 100vw;
+    }
+}
+@media only screen and (min-width:529px) and (max-width:768px){
+    .mrec button{
+        font-size: 2.2vw;
+    }
+    .atharva button{
+        font-size: 2.2vw;
+    }
+    .dep{
+        text-align: start;
+    }
+    .ds{
+        text-align: start;
+    }
+    .dep p{
+        font-size: 3.8rem;
+        font-family: 'MADE Soulmaze Outline', sans-serif;
+        --tw-text-opacity: 1;
+        color: rgba(156,163,175,var(--tw-text-opacity));
+        line-height: 1;
+        letter-spacing: .025em;
+    }
+    .ds p{
+        font-size: 4rem;
+        line-height: 1;
+        opacity: .6;
+        --tw-text-opacity: 1;
+        color: rgba(156,163,175,var(--tw-text-opacity));
+    }
+    header p{
+        font-size: 3vh;
+    }
+    .buttons .mrec{
+        font-size: 1.7vh;
+        padding: 5px;
+    }
+    .buttons .atharva{
+        font-size: 1.7vh;
+        padding: 5px;
+    }
+    .buttons .login{
+        font-size: 1.7vh;
+        padding: 5px; 
+    }
+    .heading{
+        margin-top: 7rem;
+        margin-bottom: 7rem;
+    }
+    .icons{
+        padding-bottom: 1.5rem;
+        margin-bottom: 100px;
+    }
+    img{
+        max-width: 80vw;
+    }
+}
+/* Media Query for iPhone XR */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 812px)
+  and (-webkit-device-pixel-ratio: 3) {
+  /* Your styles for iPhone XR go here */
+}
+

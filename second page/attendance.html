@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attendence page</title>
+    <style>
+        body{
+            background-color: black;
+            color: #FFFFFF;
+        }
+        header{
+            background-color:#0D0D0B;
+            border-radius: 25px;
+            margin-top: 3vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }     
+        .emptybox{
+            width: 700px; /* Set width as desired */
+            height: 500px; /* Set height as desired */
+            box-shadow: 0px 0px 9px 4px #444242;
+            background-color: #0D0D0B;
+            border-radius: 5px;
+            margin-top: 4vw;
+            margin-left: 53px;
+            margin-bottom: 53px;
+            padding: 5px;
+        }
+        .header-text {
+            color: #FFFFFF; 
+            font-size: 3vw;
+            font-family: Agency FB;
+            margin-left: 10px;
+        }
+        p{
+            margin:10px;
+            padding:0;
+        }
+        .dropbtn {
+            background-color: #0D0D0B;
+            color: #FFFFFF;
+            padding: 12px;
+            /* Adjust padding for responsiveness */
+            font-size: 14px;
+            /* Adjust font size for responsiveness */
+            border: 1px solid #FFFFFF;
+            /* Add border for a button-like appearance */
+            border-radius: 5px;
+            /* Add border-radius for rounded corners */
+            cursor: pointer;
+        }
+.dropdown {
+    position: relative; 
+    display: flex;
+    justify-content:flex-end;
+}  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color:#0D0D0B;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px solid #FFFFFF;
+    z-index: 0;
+    padding:1vw;
+    margin-bottom: 0px;
+    border:2px solid white;
+    }
+
+.show {display: block;}
+.dropdown-content button {
+    background-color:#0D0D0B;
+    color:#FFFFFF;
+    width: 100%;
+    padding: 5px;
+    font-size: 1.5vw;
+}
+button{
+    border:none;
+}
+@media only screen and (min-width:300px) and (max-width:425px){
+    body{
+        width:699px;
+    }
+    .header-text p{
+        font-size: 55px;
+
+    }
+    .emptybox{
+        width: 650;
+        height: 890px;
+        margin: 25px;
+    }
+    .dropdown-content button {
+        background-color:#0D0D0B;
+        color:#FFFFFF;
+        width: 100%;
+        padding: 5px;
+        font-size: 7vw;
+    }
+}
+@media only screen and (min-width:425px) and (max-width:610px){
+    .emptybox{
+        height: 450px;
+        width: 380px;
+        margin-left: 10px;
+    }
+    .header-text p{
+        font-size: 35px;
+
+    }
+    .dropdown-content button {
+        font-size: 3.5vw;
+    }
+}
+@media only screen and (min-width:610px) and (max-width:768px){
+    .emptybox{
+        height: 500px;
+        width: 570px;
+        margin-left: 10px;
+    }
+    .header-text p{
+        font-size: 35px;
+
+    }.dropdown-content button {
+        font-size: 3.5vw;
+    }
+
+}
+      @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        .emptybox {
+          height: 500px;
+          width: 600px;
+          margin-left: 10px;
+        }
+        .dropdown-content button {
+                font-size: 2vw;
+        }
+      }
+      @media only screen and (min-width: 1024px) and (max-width: 1440px) {
+        .emptybox {
+          height: 650px;
+          width: 770px;
+          margin-left: 10px;
+        }
+      }
+      @media only screen and (min-width: 1440px) and (max-width: 2560px) {
+        .emptybox {
+          height: 780px;
+          width: 1100px;
+          margin-left: 10px;
+        }
+      }
+      @media only screen and (min-width: 2560px) {
+        .emptybox {
+          height: 1000px;
+          width: 2000px;
+          margin-left: 70px;
+        }
+        .dropdowncontent button{
+        font-size:1.5vw;
+    }
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-text">
+            <P>ATTENDANCE</P>
+        </div>
+        <div class="dropdown">
+            <div class="line"><button onclick="myFunction()" class="dropbtn"><i class="fa fa-bars" id="myIcon"></i></button></div>
+            <div id="myDropdown" class="dropdown-content">
+              <button onclick="profile()">Profile</button><hr>
+              <button onclick="attendance()">Attendance</button><hr>
+              <button onclick="assignments()">Assignments</button><hr>
+              <button onclick="academics()">Academics</button><hr>
+              <button onclick="achievements()">Achievements</button><hr>
+              <button onclick="firstpage()">Logout</button>
+            </div>
+        </div>
+    </header>
+    <div class="emptybox"></div>
+  <!-- This script is for the working of dropdown -->
+    <script>
+        function myFunction() {
+  var dropdown = document.getElementById("myDropdown");
+  dropdown.classList.toggle("show");
+}
+// Allow clicking the icon to trigger the dropdown
+document.getElementById("myIcon").addEventListener("click", function(event) {
+        event.stopPropagation(); // Prevent button click event from firing
+        myFunction();
+    });
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+          }
+      }
+  }
+}
+function profile() {
+  window.location.href = 'profile.html';
+}
+function attendance() {
+  window.location.href = 'attendance.html';
+}
+function assignments() {
+  window.location.href = 'assignments.html';
+}
+function achievements() {
+  window.location.href = 'achievements.html';
+}
+function academics(){
+  window.location.href = 'academics.html';
+}
+function firstpage() {
+  window.location.href = '../firstpage/mainpage.html';
+}
+// Log errors to the console
+window.onerror = function (msg, url, lineNo, columnNo, error) {
+  console.log('Error:', msg, 'URL:', url, 'Line:', lineNo, 'Column:', columnNo, 'Error object:', error);
+  return false;
+};
+
+    </script>
+</body>
+</html>

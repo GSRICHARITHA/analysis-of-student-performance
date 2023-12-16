@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="academicsstyles.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@3.29.0/dist/apexcharts.min.css">
+    <title>academics page</title>
+</head>
+<body>
+<header>
+    <div class="header-text">
+        <P>ACADEMICS</P>
+    </div>
+    <div class="dropdown">
+        <div class="line"><button onclick="myFunction()" class="dropbtn"><i class="fa fa-bars" id="myIcon"></i></button></div>
+        <div id="myDropdown" class="dropdown-content">
+          <button onclick="profile()">Profile</button><hr>
+          <button onclick="attendance()">Attendance</button><hr>
+          <button onclick="assignments()">Assignments</button><hr>
+          <button onclick="academics()">Academics</button><hr>
+          <button onclick="achievements()">Achievements</button><hr>
+          <button onclick="firstpage()">Logout</button>
+        </div>
+    </div>
+</header>
+
+<div class="emptybox">
+    <div class="overall" id="overallid">
+        <p>OVER ALL</p>
+    </div>
+    <div class="firstyear" id="firstid">
+        <p>FIRST YEAR</p>
+        <button onclick="showSemester('first')">Sem-1</button>
+        <button onclick="showSemester('second')">Sem-2</button>
+    </div>
+    <div class="secondyear" id="secondid">
+        <p>SECOND YEAR</p>
+        <button onclick="showSection('secondid')">Sem-1</button>
+        <button onclick="showSection('secondid')">Sem-2</button>
+    </div>
+    <div class="thirdyear" id="thirdid">
+        <p>THIRD YEAR</p>
+        <button onclick="showSection('thirdid')">Sem-1</button>
+        <button onclick="showSection('thirdid')">Sem-2</button>
+    </div>
+    <div class="fourthyear" id="fourthid">
+        <p>FOURTH YEAR</p>
+        <button onclick="showSection('fourthid')">Sem-1</button>
+        <button onclick="showSection('fourthid')">Sem-2</button>
+    </div>
+    <div class="dropdownbox">
+        <button onclick="myDropdownbox()" class="dropbutton"><i class="fa fa-bars" id="myStyle"></i></button>
+        <div id="myDropdownid" class="dropdowncontent">
+            <button onclick="showSection('overallid')">overall</button><hr>
+            <button onclick="showSection('firstid')">1st year</button><hr>
+            <button onclick="showSection('secondid')">2nd year</button><hr>
+            <button onclick="showSection('thirdid')">3rd year</button><hr>
+            <button onclick="showSection('fourthid')">4th year</button> 
+        </div>
+    </div>
+    <div class="chart" style="display: none">
+        <div class="bg-white p-6 rounded shadow-md max-w-md">
+            <h1 class="text-2xl font-semibold mb-4">Student Sem Analysis</h1>
+    
+            <!-- Chart Type Selector (Switchable Buttons with Icons) -->
+            <div class="mb-4 flex space-x-2">
+                <button id="lineChartBtn" class="px-4 py-2 rounded-md bg-blue-500 text-white">
+                    <i class="fas fa-chart-line"></i> 
+                </button>
+                <button id="barChartBtn" class="px-4 py-2 rounded-md bg-blue-500 text-white">
+                    <i class="fas fa-chart-bar"></i> 
+                </button>
+                <button id="pieChartBtn" class="px-4 py-2 rounded-md bg-blue-500 text-white">
+                    <i class="fas fa-chart-pie"></i>
+                </button>
+                <button id="stackedAreaChartBtn" class="px-4 py-2 rounded-md bg-blue-500 text-white">
+                    <i class="fas fa-chart-area"></i> 
+                </button>
+            </div>
+    
+            <!-- Chart Container -->
+            <div id="chartContainer" class="bg-gray-200 p-4 rounded-lg"></div>
+        </div>
+    
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script>
+    //    This script is for the working of dropdown in the header
+    function myFunction() {
+      var dropdown = document.getElementById("myDropdown");
+      dropdown.classList.toggle("show");
+    }
+    // Allow clicking the icon to trigger the dropdown
+    document.getElementById("myIcon").addEventListener("click", function(event) {
+            event.stopPropagation(); // Prevent button click event from firing
+            myFunction();
+        });
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+        // Check if the click is outside the header dropdown
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+
+       // Close the dropdown if the user clicks outside of it
+      window.onclick = function (event) {
+          if (!event.target.matches('.dropbutton')) {
+              var dropdowns = document.getElementsByClassName("dropdowncontent");
+              var i;
+              for (i = 0; i < dropdowns.length; i++) {
+                  var openDropdown = dropdowns[i];
+                  if (openDropdown.classList.contains('show')) {
+                      openDropdown.classList.remove('show');
+                  }
+              }
+          }
+      }
+    
+    function profile() {
+      window.location.href = 'profile.html';
+    }
+    function attendance() {
+      window.location.href = 'attendance.html';
+    }
+    function assignments() {
+      window.location.href = 'assignments.html';
+    }
+    function achievements() {
+      window.location.href = 'achievements.html';
+    }
+    function academics(){
+      window.location.href = 'academics.html';
+    }
+    function firstpage() {
+      window.location.href = '../firstpage/mainpage.html';
+    }
+    // Log errors to the console
+    window.onerror = function (msg, url, lineNo, columnNo, error) {
+      console.log('Error:', msg, 'URL:', url, 'Line:', lineNo, 'Column:', columnNo, 'Error object:', error);
+      return false;
+    }; // End of the header dropdown
+    // dropdown box in the emptybox
+      function myDropdownbox() {
+          var dropdown = document.getElementById("myDropdownid");
+          dropdown.classList.toggle("show");
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Show the "OVERALL" section by default
+        showSection('overallid');
+    });
+         // Allow clicking the icon to trigger the dropdown
+    document.getElementById("myStyle").addEventListener("click", function(event) {
+            event.stopPropagation(); // Prevent button click event from firing
+            myDropdownbox();
+        });
+        // Close the dropdown if the user clicks outside of it
+        document.addEventListener('click', function(event) {
+            var dropdown = document.getElementById('myDropdown');
+            if (event.target.closest('.dropdown') === null && !event.target.matches('.dropbtn')) {
+                dropdown.classList.remove('show');
+            }
+        });
+    function showSection(sectionId) {
+        var sections = document.querySelectorAll('.firstyear, .secondyear,.thirdyear,.fourthyear, .overall');
+
+        sections.forEach(function (section) {
+            section.style.display = "none";
+        });
+
+        var section = document.getElementById(sectionId);
+        if (section) {
+            section.style.display = "block";
+        }
+        chartContainer.innerHTML = ''; // Clear the inner HTML
+        if (section) {
+                chartContainer.style.display = 'none';
+            }
+  }
+      
+//GRAPHS
+
+let subjects= [];
+let marks= [];
+const lineChartBtn = document.getElementById("lineChartBtn");
+const barChartBtn = document.getElementById("barChartBtn");
+const pieChartBtn = document.getElementById("pieChartBtn");
+const stackedAreaChartBtn = document.getElementById("stackedAreaChartBtn");
+let chartContainer = document.getElementById("chartContainer");
+let chart; // Initialize chart variable
+// Simulate data for the selected semester
+function showSemester(semester) {
+    // Show the chart container
+    document.querySelector('.chart').style.display = 'block';       
+    if (subjects && marks && subjects.length > 0 && marks.length > 0) {
+            chartContainer.style.display = 'block';
+        }else {
+            // Hide the chart container if there is no data
+            chartContainer.style.display = 'none';
+        }
+    
+}
+function setupLineChart() {
+    // Simulated data for testing, replace with your actual data
+    subjects = ["DM", "COA", "DS", "OOP", "DPA", "DSLAB", "OOPLAB", "DPALAB", "GS"];
+    marks = [60, 70, 24, 58, 73, 90, 90, 93, 75];
+    
+    chart = new ApexCharts(chartContainer, {
+        chart: {
+            type: 'line',
+            height: 350,
+            toolbar: {
+                show: false,
+            },
+        },
+        xaxis: {
+            categories: subjects,
+        },
+        yaxis: {
+            min: 0, // Set the y-axis minimum value to 0
+            max: 100,
+        },
+        series: [{
+            name: "marks",
+            data: marks,
+        }],
+        markers: {
+            size: 5,
+            colors: marks.map(item => (item < 35 ? 'red' : 'blue')),
+        },
+    });
+    chart.render();
+}
+
+function setupBarChart() {
+        chart = new ApexCharts(chartContainer, {
+            series: [{
+                name: "marks",
+                data: marks,
+            }],
+            chart: {
+                type: 'bar',
+                height: 350,
+                toolbar: {
+                    show: false,
+                },
+            },
+            xaxis: {
+                categories: subjects,
+            },
+            yaxis: {
+                min: 0, // Set the y-axis minimum value to 0
+            },
+        });
+        chart.render();
+    }
+        function setupPieChart() {
+            // Initialize the pie chart with correct data format
+            chart = new ApexCharts(chartContainer, {
+                chart: {
+                    type: 'pie',
+                    height: 350,
+                    toolbar: {
+                        show: false,
+                    },
+                },
+                labels: subjects,
+                series: marks,
+            });
+            chart.render();
+        }
+
+        function setupStackedAreaChart() {
+            chart = new ApexCharts(chartContainer, {
+                chart: {
+                    type: 'area',
+                    stacked: true,
+                    height: 350,
+                    toolbar: {
+                        show: false,
+                    },
+                },
+                xaxis: {
+                    categories:subjects,
+                },
+                series: [{
+                    name: "marks",
+                    data: marks,
+                }],
+            });
+            chart.render();
+        }
+
+        // Initialize with a line chart
+        setupLineChart();
+
+        // Event listeners for chart type buttons
+        lineChartBtn.addEventListener('click', () => {
+            chart.destroy();
+            setupLineChart();
+            lineChartBtn.classList.add("bg-blue-500");
+            lineChartBtn.classList.remove("bg-gray-300");
+            barChartBtn.classList.add("bg-gray-300");
+            barChartBtn.classList.remove("bg-blue-500");
+            pieChartBtn.classList.add("bg-gray-300");
+            pieChartBtn.classList.remove("bg-blue-500");
+            stackedAreaChartBtn.classList.add("bg-gray-300");
+            stackedAreaChartBtn.classList.remove("bg-blue-500");
+        });
+
+        barChartBtn.addEventListener('click', () => {
+            chart.destroy();
+            setupBarChart();
+            
+            barChartBtn.classList.add("bg-blue-500");
+            barChartBtn.classList.remove("bg-gray-300");
+            lineChartBtn.classList.add("bg-gray-300");
+            lineChartBtn.classList.remove("bg-blue-500");
+            pieChartBtn.classList.add("bg-gray-300");
+            pieChartBtn.classList.remove("bg-blue-500");
+            stackedAreaChartBtn.classList.add("bg-gray-300");
+            stackedAreaChartBtn.classList.remove("bg-blue-500");
+        });
+
+        pieChartBtn.addEventListener('click', () => {
+            chart.destroy();
+            setupPieChart();
+           
+            pieChartBtn.classList.add("bg-blue-500");
+            pieChartBtn.classList.remove("bg-gray-300");
+            lineChartBtn.classList.add("bg-gray-300");
+            lineChartBtn.classList.remove("bg-blue-500");
+            barChartBtn.classList.add("bg-gray-300");
+            barChartBtn.classList.remove("bg-blue-500");
+            stackedAreaChartBtn.classList.add("bg-gray-300");
+            stackedAreaChartBtn.classList.remove("bg-blue-500");
+        });
+
+        stackedAreaChartBtn.addEventListener('click', () => {
+            chart.destroy();
+            setupStackedAreaChart();
+            
+            stackedAreaChartBtn.classList.add("bg-blue-500");
+            stackedAreaChartBtn.classList.remove("bg-gray-300");
+            lineChartBtn.classList.add("bg-gray-300");
+            lineChartBtn.classList.remove("bg-blue-500");
+            barChartBtn.classList.add("bg-gray-300");
+            barChartBtn.classList.remove("bg-blue-500");
+            pieChartBtn.classList.add("bg-gray-300");
+            pieChartBtn.classList.remove("bg-blue-500");
+        });
+    
+       
+
+    </script>  
+
+    
+</body>
+</html>

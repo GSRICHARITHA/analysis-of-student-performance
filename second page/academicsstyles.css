@@ -1,0 +1,306 @@
+body {
+    background-color: black;
+    /* color: #FFFFFF; */
+}
+
+header {
+    background-color: #0D0D0B;
+    border-radius: 25px;
+    margin-top: 3vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.emptybox {
+    width: 700px; /* Set width as desired */
+    height: 500px; /* Set height as desired */
+    box-shadow: 0px 0px 9px 4px #444242;
+    background-color: #0D0D0B;
+    border-radius: 5px;
+    margin-top: 4vw;
+    margin-left: 53px;
+    margin-bottom: 53px;
+    padding: 5px;
+    position: relative; /* Added position relative for positioning children */
+}
+
+.header-text {
+    color: #FFFFFF;
+    font-size: 3vw;
+    font-family: 'Agency FB', sans-serif;
+    margin-left: 10px;
+}
+
+p {
+    margin: 10px;
+    padding:0;
+    color: #FFFFFF;
+}
+.dropbtn {
+    background-color: #0D0D0B;
+    color: #FFFFFF;
+    padding: 12px;
+    /* Adjust padding for responsiveness */
+    font-size: 14px;
+    /* Adjust font size for responsiveness */
+    border: 1px solid #FFFFFF;
+    /* Add border for a button-like appearance */
+    border-radius: 5px;
+    /* Add border-radius for rounded corners */
+    cursor: pointer;
+}
+.dropdown {
+position: relative; 
+display: flex;
+justify-content:flex-end;
+z-index:9999 ;
+margin-right: 20px; 
+}  
+.dropdown-content {
+display: none;
+position: absolute;
+background-color:#0D0D0B;
+min-width: 160px;
+overflow: auto;
+box-shadow: 0px 8px 16px 0px solid #FFFFFF;
+z-index: 0;
+padding:1vw;
+margin-bottom: 0px;
+border:2px solid white;
+}
+
+.show {display: block;}
+.dropdown-content button {
+background-color:#0D0D0B;
+color:#FFFFFF;
+width: 100%;
+padding: 5px;
+font-size: 1.5vw;
+}
+button{
+border:none;
+}
+
+.emptybox p {
+    color: #FFFFFF;
+    font-size: 3vw;
+    font-family:'Agency FB', sans-serif;
+}
+
+.overall {
+    margin: 1vw;
+    display: block;
+}
+.dropbutton {
+    background-color: #0D0D0B;
+    color: #FFFFFF;
+    padding: 12px;
+    /* Adjust padding for responsiveness */
+    font-size: 14px;
+    /* Adjust font size for responsiveness */
+    border: 1px solid #FFFFFF;
+    /* Add border for a button-like appearance */
+    border-radius: 5px;
+    /* Add border-radius for rounded corners */
+    cursor: pointer;
+}
+
+.dropdownbox {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    margin: 10px;
+}
+
+.dropdowncontent {
+    display: none;
+    position: absolute;
+    background-color: #0D0D0B;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px solid #FFFFFF;
+    z-index: 0;
+    padding: 1vw;
+    margin-bottom: 0px;
+    border: 2px solid white;
+}
+
+.show {
+    display: block;
+}
+
+.dropdowncontent button {
+    background-color: #0D0D0B;
+    color: #FFFFFF;
+    width: 100%;
+    padding: 5px;
+    font-size: 1vw;
+    border: none;
+}
+.firstyear {
+    font-size: 3vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+.firstyear p,
+.secondyear p,
+.thirdyear p,
+.fourthyear p{
+   margin-right: 10px;
+   margin-bottom: 0px;
+}
+.firstyear button,
+.secondyear button,
+.thirdyear button,
+.fourthyear button{
+    padding: 10px;
+    font-size: 1.5vw;
+    margin: 5px;
+    margin-left: 5vw;
+    background: white;
+    
+}
+#firstid {
+    display: none;   
+}
+.chart{
+    height:600px;
+    margin-top: 1rem;
+}
+@media only screen and (min-width: 300px) and (max-width: 425px) {
+    body {
+        width: 699px;
+    }
+    .header-text {
+        font-size: 55px;
+    }
+
+    .emptybox {
+        width: 650px;
+        height: 800px;
+        margin: 25px;
+
+    }
+    .dropdown-content button {
+        background-color:#0D0D0B;
+        color:#FFFFFF;
+        width: 100%;
+        padding: 5px;
+        font-size: 7vw;
+    }
+   .emptybox p{
+        font-size: 12vw;
+    }
+    .dropdowncontent button{
+        font-size: 7vw;
+    }
+    .firstyear button,
+.secondyear button,
+.thirdyear button,
+.fourthyear button{
+    font-size: 7.5vw;
+}
+}
+
+@media only screen and (min-width:425px) and (max-width:610px){
+.emptybox{
+height: 450px;
+width: 380px;
+margin-left: 10px;
+}
+.header-text p{
+font-size: 35px;
+
+}
+.dropdown-content button {
+font-size: 3.5vw;
+}
+.emptybox p{
+font-size: 6vw;
+}
+.dropdowncontent button{
+font-size: 4vw;
+}
+.firstyear button,
+.secondyear button,
+.thirdyear button,
+.fourthyear button{
+    font-size: 3vw;
+}
+.chart{
+    height:350px;
+}
+}
+@media only screen and (min-width:610px) and (max-width:768px){
+.emptybox{
+height: 500px;
+width: 570px;
+margin-left: 10px;
+}
+.header-text p{
+font-size: 35px;
+
+}.dropdown-content button {
+font-size: 3.5vw;
+}
+.emptybox p{
+font-size: 5vw;
+}
+.dropdowncontent button{
+font-size: 2.5vw;
+}
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .emptybox {
+        height: 500px;
+        width: 600px;
+        margin-left: 10px;
+    }
+    .emptybox p{
+        font-size: 3vw;
+    }
+    .dropdown-content button {
+        font-size: 2vw;
+    }
+    .dropdowncontent button{
+        font-size: 2vw;
+    }
+    .chart{
+        height:400px;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1440px) {
+    .emptybox {
+        height: 650px;
+        width: 770px;
+        margin-left: 10px;
+    }
+
+
+}
+
+@media only screen and (min-width: 1440px) and (max-width: 2560px) {
+    .emptybox {
+        height: 780px;
+        width: 1100px;
+        margin-left: 10px;
+    }
+
+
+}
+
+@media only screen and (min-width: 2560px) {
+    .emptybox {
+        height: 1000px;
+        width: 2000px;
+        margin-left: 70px;
+    }
+    .dropdowncontent button{
+font-size:1.5vw;
+}
+
+}
