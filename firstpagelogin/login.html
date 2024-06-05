@@ -18,19 +18,15 @@
    function validateForm() {
     var userId = document.getElementById("userId").value;
     var password = document.getElementById("password").value;
-
-    // Check if the user ID and password are correct (replace this with your validation logic)
-    if (userId === "21J41A6784" && password === "21J41A6784") {
-        // Successful login
-        console.log("Login successful");
-        // Redirect to another page
+    if (userId !== "" && password !== "") {
+        // Redirect to the profile page if both fields are not empty
         window.location.href = "../second page/profile.html";
-        return false; // Prevent the form from being submitted
     } else {
-        // Display a warning message
-        alert("Incorrect user ID or password");
-        return false; // Prevent the form from being submitted
+        // Display a warning message if either field is empty
+        alert("Please enter both user ID and password");
     }
+    
+    return false; // Prevent the form from being submitted
 }
     </script>
 </body>
